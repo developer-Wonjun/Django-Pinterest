@@ -7,4 +7,3 @@ class AccountUpdateForm(UserCreationForm):
 
         self.fields['username'].disabled = True
 
-
