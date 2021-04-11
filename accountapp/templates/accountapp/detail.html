@@ -8,10 +8,16 @@
                 {{ target_user.date_joined }}
             </p>
 
-            <h2>
-                {{ target_user.username }}
-            </h2>
 
+            {% if target_user.profile %}
+            <h2>
+                {{ target_user.profile.nickname }}
+            </h2>
+            {% else %}
+            <a href="{% url 'profileapp:create'%}">
+                <h2> Create Profile</h2>
+            </a>
+            {% endif %}
             {% if target_user == user %}
             <a href="{% url 'accountapp:update' pk=user.pk %}">
                 <p>
