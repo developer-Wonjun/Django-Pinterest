@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .container div {
+        width: 250px;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+    }
+
+    .container img {
+        width: 100%;
+        border-radius: 1rem;
+
+    }
+</style>
+
+<div class="container">
+    <div class="item1">
+        <img src=" https://picsum.photos/200/300" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/340" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/310" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/320" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/330" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/340" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/350" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/370" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/360" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/380" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/390" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/400" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/410" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/420" alt="">
+    </div>
+    <div>
+        <img src="https://picsum.photos/200/430" alt="">
+    </div>
+
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+    <div class="item10">10</div>
+    <div class="item11">11</div>
+    <div class="item12">12</div>
+    <div class="item13">13</div>
+</div>
+
+<script src="{% static 'js/magicgrid.js' %}">
+
+</script>
+
+
+
+{% endblock %}
