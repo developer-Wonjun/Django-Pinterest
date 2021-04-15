@@ -4,7 +4,9 @@
         </div>
 
         <div>
-            <span>nav1</span>
+            <a href="{% url 'articleapp:list' %}">
+                <span>Articles</span>
+            </a>
             <span>nav1</span>
             <span>nav1</span>
             {% if not user.is_authenticated %}
