@@ -4,8 +4,9 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, ListView
 
+from articleapp.models import Article
 from projectapp.models import Project
 from subscribeapp.models import Subscription
 
@@ -30,3 +31,15 @@ class SubscriptionView(RedirectView):
 
 
         return super(SubscriptionView, self).get(request, *args, **kwargs)
+
+@method_decorator(login_required, 'get')
+class SubscriptionListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'subscribeapp/list.html'
+    paginate_by = 5
+
+    def get_queryset(self): #가지고오는 조건들을 바꿀 수 있다.
+        projects = Subscription.objects.filter(user=self.request.user).values_list('project') #values_list : 값들을 리스트화
+        article_list = Article.objects.filter(project__in=projects)
+        return article_list
