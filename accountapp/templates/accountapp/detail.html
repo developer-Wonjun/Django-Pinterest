@@ -14,7 +14,10 @@
         <h2>
             {{ target_user.profile.nickname }}
             {% if target_user == user %}
-            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}" style="color: darkgreen;">edit</a>
+            <a class="material-icons"
+               style="box-shadow: 0 0 4px #ccc; border-radius:10rem; padding: .4rem;"
+               href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                edit</a>
             {% endif %}
         </h2>
         <h5 style="margin-bottom:4rem;">
@@ -34,16 +37,16 @@
 
 
         {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>
-                Chage Info
-            </p>
+        <a class="material-icons"
+           style="box-shadow: 0 0 4px #ccc; border-radius:10rem; padding: .4rem;"
+           href="{% url 'accountapp:update' pk=user.pk %}">
+                settings
         </a>
 
-        <a href="{% url 'accountapp:delete' pk=user.pk %}">
-            <p>
-                Quit
-            </p>
+        <a class="material-icons"
+           style="box-shadow: 0 0 4px red; border-radius:10rem; padding: .4rem;"
+           href="{% url 'accountapp:delete' pk=user.pk %}">
+                cancel
         </a>
 
         {% endif %}
