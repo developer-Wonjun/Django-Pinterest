@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  django:
+    image: django_test_image.3
+    ports:
+      - 8000:8000
