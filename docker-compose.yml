@@ -12,12 +12,15 @@ services:
       - 80:80
 
   django_container_gunicorn:
-    image: django_test_image:4
+    image: django_test_image:5
     networks:
       - network
     volumes:
       - static-volume:/home/Django-Pinterest/staticfiles
       - media-volume:/home/Django-Pinterest/media
+    secrets:
+      - MYSQL_PASSWORD
+      - DJANGO_SECRET_KEY
 
   mariadb:
     image: mariadb:10.5
@@ -25,11 +28,14 @@ services:
       - network
     volumes:
       - maria-database:/var/lib/mysql
+    secrets:
+      = MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
     environment:
-      MYSQL_ROOT_PASSWORD: dari9308
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: django
       MYSQL_USER: django
-      MYSQL_PASSWORD: dari9308
+      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
 
 networks:
   network:
@@ -39,3 +45,10 @@ volumes:
   media-volume:
   maria-database:
 
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true #외부에서 공급받는다.
+  MYSQL_PASSWORD:
+    external: true
+  MYSQL_ROOT_PASSWORD:
+    external: true
