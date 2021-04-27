@@ -14,6 +14,7 @@ from pathlib import Path
 import os, environ
 
 from django.urls import reverse_lazy
+from django.contrib.messages import constants as messages
 
 
 
@@ -51,6 +52,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 ROOT_URLCONF = 'pragmatic.urls'
 
